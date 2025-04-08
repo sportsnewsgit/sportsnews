@@ -7,6 +7,14 @@ const PORT = 3000;
 app.use(cors()); // Permettre les requêtes depuis le frontend
 const API_KEY = "6f3a52d5b84740feb197aedbabf0af4f";
 
+app.get("/", async (req, res) => {
+  try {
+    res.json("DATA");
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 app.get("/proxy/standings/:league", async (req, res) => {
   try {
     const league = req.params.league;
